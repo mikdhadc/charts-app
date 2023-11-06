@@ -14,6 +14,7 @@ import {
 } from "@mui/icons-material";
 import "./PageHeader.scss";
 import profilePicture from "../../assets/profilePicture.jpg";
+import logo from "../../assets/logo.png";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -70,6 +71,9 @@ function PageHeader() {
           }}
         >
           <Toolbar sx={{ justifyContent: "flex-end", margin: "0.5rem 0" }}>
+            <div className="logo">
+              <img src={logo} alt="logo" height={40} width="inherit" />{" "}
+            </div>
             <Search>
               <SearchIconWrapper sx={{ color: "#45474B" }}>
                 <SearchRounded />

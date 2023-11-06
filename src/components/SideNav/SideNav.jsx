@@ -2,14 +2,13 @@ import React, { useState } from "react";
 import { Sidebar, Menu, MenuItem } from "react-pro-sidebar";
 import { Link, useLocation } from "react-router-dom";
 import { sideBarData } from "./SideBarData";
-import logo from "../../assets/logo.png";
 import "./SideNav.scss";
 import { IconButton } from "@mui/material";
-import { MenuRounded } from "@mui/icons-material";
 import KeyboardDoubleArrowLeftOutlinedIcon from "@mui/icons-material/KeyboardDoubleArrowLeftOutlined";
+import KeyboardDoubleArrowRightOutlinedIcon from "@mui/icons-material/KeyboardDoubleArrowRightOutlined";
 
 function SideNav() {
-  const [isCollapsed, setIsCollapsed] = useState(true);
+  const [isCollapsed, setIsCollapsed] = useState(false);
 
   const location = useLocation();
 
@@ -26,32 +25,21 @@ function SideNav() {
         backgroundColor="white"
         className="side-nav"
         style={{
-          //   position: "fixed",
-          top: 0,
           height: "100vh",
         }}
       >
-        <div style={{ height: "5rem" }}>
+        <div>
           {isCollapsed ? (
-            <div className="menu-icon">
-              <IconButton
-                onClick={() => {
-                  setCollapsedFn();
-                }}
-              >
-                <MenuRounded sx={{ color: "black" }} />
+            <div className="close-menu-button">
+              <IconButton onClick={() => setCollapsedFn()}>
+                <KeyboardDoubleArrowRightOutlinedIcon fontSize="small" />
               </IconButton>
             </div>
           ) : (
-            <div className="sidebar-header">
-              <div className="logo">
-                <img src={logo} alt="logo" height={40} width="inherit" />{" "}
-              </div>
-              <div className="close-menu-button">
-                <IconButton onClick={() => setCollapsedFn()}>
-                  <KeyboardDoubleArrowLeftOutlinedIcon fontSize="small" />
-                </IconButton>
-              </div>
+            <div className="close-menu-button">
+              <IconButton onClick={() => setCollapsedFn()}>
+                <KeyboardDoubleArrowLeftOutlinedIcon fontSize="small" />
+              </IconButton>
             </div>
           )}
         </div>
