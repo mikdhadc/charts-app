@@ -23,7 +23,6 @@ function App() {
             <Route path="/contacts" element={<Dashboard />} />
           </Routes>
         </Router>
-        <div className="content"></div>
       </main>
     </div>
   );

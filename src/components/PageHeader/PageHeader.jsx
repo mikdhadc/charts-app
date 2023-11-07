@@ -61,31 +61,31 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 function PageHeader() {
   return (
     <div>
-      <Box sx={{ flexGrow: 1 }}>
+      <Box style={{ flexGrow: 1 }}>
         <AppBar
           position="static"
           className="page-header-main"
-          sx={{
+          style={{
             backgroundColor: "white",
             boxShadow: "0px -5px 10px 0px rgba(0, 0, 0, 0.5)",
           }}
         >
-          <Toolbar sx={{ justifyContent: "flex-end", margin: "0.5rem 0" }}>
+          <Toolbar style={{ justifyContent: "flex-end", margin: "0.5rem 0" }}>
             <div className="logo">
               <img src={logo} alt="logo" height={40} width="inherit" />{" "}
             </div>
             <Search>
-              <SearchIconWrapper sx={{ color: "#45474B" }}>
+              <SearchIconWrapper style={{ color: "#45474B" }}>
                 <SearchRounded />
               </SearchIconWrapper>
               <StyledInputBase
                 inputProps={{ "aria-label": "search" }}
-                sx={{ color: "black" }}
+                style={{ color: "black" }}
               />
             </Search>
             <div className="notifications margin-left-1">
               <IconButton
-                sx={{
+                style={{
                   color: "black",
                   padding: 0,
                   margin: 1,
@@ -106,7 +106,7 @@ function PageHeader() {
                   width={35}
                   className="profile-picture"
                 />
-                <ArrowDropDown sx={{ color: "black" }} />
+                <ArrowDropDown style={{ color: "black" }} />
               </IconButton>
             </div>
           </Toolbar>
