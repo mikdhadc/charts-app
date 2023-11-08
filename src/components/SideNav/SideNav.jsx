@@ -20,7 +20,7 @@ function SideNav() {
     <div style={{ display: "flex" }}>
       <Sidebar
         collapsed={isCollapsed}
-        width="27ch"
+        width="30ch"
         height="100vh"
         backgroundColor="white"
         className="side-nav"
@@ -71,7 +71,11 @@ function SideNav() {
                     key={`nav-item-${i}`}
                     icon={item.icon}
                     className={item.class}
-                    style={{ padding: "30px", marginBottom: "2px" }}
+                    style={{
+                      padding: "30px",
+                      marginBottom: "2px",
+                      fontWeight: 500,
+                    }}
                     active={item.path === location.pathname ? true : false}
                   >
                     {item.title}

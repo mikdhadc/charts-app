@@ -1,16 +1,16 @@
 import React from "react";
-import { Box, Grid, Paper } from "@mui/material";
+import { Box, Fab, Grid } from "@mui/material";
 import "./Dashboard.scss";
-import BarChartOne from "../components/BarChartOne/BarChartOne";
-import BarChartTwo from "../components/BarChartTwo/BarChartTwo";
+import BarChart from "../components/BarChart/BarChart";
+import StackedChart from "../components/StackedChart/StackedChart";
 import LineChart from "../components/LineChart/LineChart";
 import DataTable from "../components/DataTable/DataTable";
+import { Upgrade } from "@mui/icons-material";
 
 export const paperDefaultProps = {
   boxShadow: " 3px 3px 5px 2px #f3f3f3",
   height: "40vh",
   borderRadius: "15px",
-  padding: "1rem",
 };
 
 function Dashboard() {
@@ -22,16 +22,30 @@ function Dashboard() {
             <LineChart />
           </Grid>
           <Grid item xs={12} sm={6}>
-            <BarChartOne />
+            <BarChart />
           </Grid>
           <Grid item xs={12} sm={6}>
-            <BarChartTwo />
+            <StackedChart />
           </Grid>
           <Grid item xs={12} sm={6}>
             <DataTable />
           </Grid>
         </Grid>
       </Box>
+      <Fab
+        variant="extended"
+        style={{
+          position: "fixed",
+          right: "3rem",
+          bottom: "2rem",
+          textTransform: "capitalize",
+          backgroundColor: "#47B747",
+          color: "white",
+        }}
+      >
+        <Upgrade sx={{ mr: 1 }} />
+        Update charts
+      </Fab>
     </div>
   );
 }
