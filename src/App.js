@@ -1,5 +1,10 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Navigate,
+} from "react-router-dom";
 import "./App.scss";
 import PageHeader from "./components/PageHeader/PageHeader";
 import SideNav from "./components/SideNav/SideNav";
@@ -15,6 +20,7 @@ function App() {
         <Router>
           <SideNav />
           <Routes>
+            <Route path="/" element={<Navigate to="/dashboard" />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/accounts" element={<Dashboard />} />
             <Route path="/payroll" element={<Dashboard />} />

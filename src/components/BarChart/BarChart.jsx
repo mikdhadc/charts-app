@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { Paper, Button } from "@mui/material";
 import { paperDefaultProps } from "../../pages/Dashboard";
 import "./BarChart.scss";
+import Popup from "./Popup";
 
 function BarChart() {
+  const [open, setOpen] = useState(false);
+
   return (
     <Paper elevation={0} style={paperDefaultProps}>
       <div className="bar-chart-header">
@@ -18,11 +21,13 @@ function BarChart() {
             fontSize: "12px",
             textTransform: "capitalize",
           }}
+          onClick={() => setOpen(!open)}
         >
           <b>New Sales Invoice</b>
         </Button>
       </div>
       <div></div>
+      {open && <Popup open={open} setOpen={setOpen} />}
     </Paper>
   );
 }
