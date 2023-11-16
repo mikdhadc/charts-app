@@ -1,3 +1,14 @@
+# Basic Dashboard application
+
+This is a basic dashboard web application created in Javascript.
+`React.js` is used for creating the UI and `d3.js` is used for creating the charts in the project.
+
+The data used to create the charts are completely mock data, and you can randomly change them by clicking on the `update charts` button in the UI.
+
+## UI Screen
+
+<img src="./src/assets/screen.png"/>
+
 ## Available Scripts
 
 In the project directory, you can run:
@@ -6,18 +17,3 @@ In the project directory, you can run:
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
