@@ -10,13 +10,14 @@ import { paperDefaultProps } from "../../pages/Dashboard";
 import "./LineChart.scss";
 import ChartComponent from "./ChartComponent";
 
-const LineChart = ({ data }) => {
+const LineChart = (props) => {
+  const { data, generateLineData } = props;
   const [month, setMonth] = useState([0, 12]);
-  const [manage, setManage] = useState([0, 400]);
-  const [manageValue, setManageValue] = useState(400);
+  const [manage, setManage] = useState([0, 450]);
+  const [manageValue, setManageValue] = useState(450);
   const [monthValue, setMonthValue] = useState("January");
 
-  const manageData = [400, 430, 510, 660, 730, 820, 935];
+  const manageData = [450, 480, 510, 660, 730, 820, 935];
   const monthData = [
     "January",
     "February",
@@ -33,7 +34,7 @@ const LineChart = ({ data }) => {
   ];
 
   const manageSelectHandle = (event) => {
-    setManage([0, event.target.value]);
+    generateLineData();
     setManageValue(event.target.value);
   };
 

@@ -4,13 +4,12 @@ import * as d3 from "d3";
 const ChartComponent = (props) => {
   const svgRef = useRef();
   const { manage, month, data } = props;
-  console.log(month);
+
+  const width = 630;
+  const height = 250;
 
   useEffect(() => {
     d3.select(svgRef.current).selectAll("*").remove();
-
-    const width = 630;
-    const height = 250;
 
     const svg = d3
       .select(svgRef.current)
@@ -37,10 +36,7 @@ const ChartComponent = (props) => {
       .ticks(10)
       .tickFormat((i) => i + 1);
 
-    const yAxis = d3
-      .axisLeft(yScale)
-      .ticks(manage.length)
-      .tickFormat((i) => i + 1);
+    const yAxis = d3.axisLeft(yScale);
 
     svg
       .append("g")
@@ -51,7 +47,7 @@ const ChartComponent = (props) => {
 
     svg
       .selectAll(".line1")
-      .data([manage])
+      //   .data([manage])
       .data([data])
       .join("path")
       .attr("class", "line1")

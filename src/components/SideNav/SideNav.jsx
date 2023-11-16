@@ -11,7 +11,6 @@ function SideNav() {
   const [isCollapsed, setIsCollapsed] = useState(false);
 
   const location = useLocation();
-  console.log(location);
 
   const setCollapsedFn = () => {
     setIsCollapsed(!isCollapsed);

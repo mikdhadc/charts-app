@@ -35,19 +35,13 @@ const Popup = (props) => {
           <div className="popup-header">Upload invoice</div>
           <div className="popup-body">
             <div>
-              <Button
-                variant="contained"
-                style={{
-                  backgroundColor: "#47b747",
-                  marginRight: "2rem",
-                  paddingLeft: "2rem",
-                  paddingRight: "2rem",
-                  textTransform: "capitalize",
-                }}
-              >
-                Choose from your computer
-              </Button>
-              or
+              <input
+                className="modalInput"
+                type="file"
+                accept=".pdf, .doc, .docx, .txt"
+                onChange={() => {}}
+              />
+              <div style={{ marginTop: "2rem" }}>or</div>
             </div>
 
             <div className="drag-n-drop">
@@ -65,8 +59,8 @@ const Popup = (props) => {
               variant="outlined"
               style={{
                 textTransform: "capitalize",
-                color: "red",
-                border: "1px solid red",
+                color: "#47b747",
+                border: "1px solid #47b747",
               }}
               onClick={() => setOpen(false)}
             >

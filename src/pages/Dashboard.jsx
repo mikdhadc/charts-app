@@ -15,11 +15,114 @@ export const paperDefaultProps = {
 };
 
 const Dashboard = () => {
-  const [data, setData] = useState([]);
+  const [lineChartData, setLineChartData] = useState([]);
+  const [barChartData, setBarChartData] = useState([]);
+  const [stackedChartData, setStackedChartData] = useState([
+    { label: "July", stack1: 23, stack2: 18 },
+    { label: "August", stack1: 25, stack2: 30 },
+    { label: "September", stack1: 30, stack2: 20 },
+    { label: "October", stack1: 29, stack2: 20 },
+    { label: "November", stack1: 40, stack2: 15 },
+    { label: "December", stack1: 15, stack2: 25 },
+  ]);
+  const [dataTableData, setDataTableData] = useState([]);
 
+  const getRandomInt = (min, max) => {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  };
+
+  const getRandomFloat = (min, max) => {
+    const temp = (Math.random() * (max - min) + min).toFixed(2);
+    return temp.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  };
+
+  const generateLineData = () => {
+    //line chart data
+    const temp1 = d3.range(25).map(d3.randomInt(1, 400));
+    setLineChartData(temp1);
+  };
+
+  const generateBarData = () => {
+    //bar chart data
+    const temp2 = d3.range(7).map(d3.randomInt(1, 400));
+    setBarChartData(temp2);
+  };
+
+  const generateStackedData = () => {
+    //stacked chart data
+    const temp3 = [
+      {
+        label: "July",
+        stack1: getRandomInt(10, 60),
+        stack2: getRandomInt(10, 60),
+      },
+      {
+        label: "August",
+        stack1: getRandomInt(10, 60),
+        stack2: getRandomInt(10, 60),
+      },
+      {
+        label: "September",
+        stack1: getRandomInt(10, 60),
+        stack2: getRandomInt(10, 60),
+      },
+      {
+        label: "October",
+        stack1: getRandomInt(10, 60),
+        stack2: getRandomInt(10, 60),
+      },
+      {
+        label: "November",
+        stack1: getRandomInt(10, 60),
+        stack2: getRandomInt(10, 60),
+      },
+      {
+        label: "December",
+        stack1: getRandomInt(10, 60),
+        stack2: getRandomInt(10, 60),
+      },
+    ];
+    setStackedChartData(temp3);
+  };
+
+  const generateTableData = () => {
+    //data table data
+    const temp4 = [
+      {
+        account: "Sales",
+        thisMonth: getRandomFloat(1000, 10000),
+        ytd: getRandomFloat(2000, 25000),
+      },
+      {
+        account: "Advertising",
+        thisMonth: getRandomFloat(1000, 10000),
+        ytd: getRandomFloat(2000, 25000),
+      },
+      {
+        account: "Inventory",
+        thisMonth: getRandomFloat(1000, 10000),
+        ytd: getRandomFloat(2000, 25000),
+      },
+      {
+        account: "Entertainment",
+        thisMonth: getRandomFloat(1000, 10000),
+        ytd: getRandomFloat(2000, 25000),
+      },
+      {
+        account: "Product",
+        thisMonth: getRandomFloat(1000, 10000),
+        ytd: getRandomFloat(2000, 25000),
+      },
+    ];
+    setDataTableData(temp4);
+  };
+
+  //generates data for all the charts
   const generateData = () => {
-    const temp = d3.range(25).map(d3.randomInt(1, 400));
-    setData(temp);
+    generateLineData();
+    generateBarData();
+    generateStackedData();
+    generateTableData();
   };
 
   useEffect(() => {
@@ -31,16 +134,19 @@ const Dashboard = () => {
       <Box sx={{ flexGrow: 1 }}>
         <Grid container spacing={{ xs: 3 }} style={{ height: "100%" }}>
           <Grid item xs={12} sm={6}>
-            <LineChart data={data} />
+            <LineChart
+              data={lineChartData}
+              generateLineData={generateLineData}
+            />
           </Grid>
           <Grid item xs={12} sm={6}>
-            <BarChart />
+            <BarChart data={barChartData} />
           </Grid>
           <Grid item xs={12} sm={6}>
-            <StackedChart />
+            <StackedChart data={stackedChartData} />
           </Grid>
           <Grid item xs={12} sm={6}>
-            <DataTable />
+            <DataTable data={dataTableData} />
           </Grid>
         </Grid>
       </Box>
@@ -51,7 +157,7 @@ const Dashboard = () => {
           right: "3rem",
           bottom: "2rem",
           textTransform: "capitalize",
-          backgroundColor: "#47B747",
+          backgroundColor: "blue",
           color: "white",
         }}
         onClick={() => generateData()}
