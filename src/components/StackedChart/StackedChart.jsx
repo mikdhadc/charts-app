@@ -10,6 +10,11 @@ const legendStyleDefault = {
   alignItems: "center",
 };
 
+// eslint-disable-next-line no-restricted-globals
+const bodyWidth = screen.width;
+// eslint-disable-next-line no-restricted-globals
+const bodyHeight = screen.height;
+
 const StackedChart = (props) => {
   const svgRef = useRef();
   const { data } = props;
@@ -17,8 +22,9 @@ const StackedChart = (props) => {
   useEffect(() => {
     d3.select(svgRef.current).selectAll("*").remove();
     const margin = { top: 30, right: 30, bottom: 30, left: 30 };
-    const width = 630;
-    const height = 250;
+
+    const width = bodyWidth - 1170;
+    const height = bodyHeight - 870;
 
     const svg = d3
       .select(svgRef.current)

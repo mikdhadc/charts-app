@@ -5,14 +5,19 @@ import "./BarChart.scss";
 import Popup from "./Popup";
 import * as d3 from "d3";
 
-function BarChart(props) {
+// eslint-disable-next-line no-restricted-globals
+const bodyWidth = screen.width;
+// eslint-disable-next-line no-restricted-globals
+const bodyHeight = screen.height;
+
+const BarChart = (props) => {
   const [open, setOpen] = useState(false);
   const svgRef = useRef();
 
   const { data } = props;
 
-  const width = 630;
-  const height = 250;
+  const width = bodyWidth - 1170;
+  const height = bodyHeight - 870;
 
   useEffect(() => {
     d3.select(svgRef.current).selectAll("*").remove();
@@ -84,6 +89,6 @@ function BarChart(props) {
       {open && <Popup open={open} setOpen={setOpen} />}
     </Paper>
   );
-}
+};
 
 export default BarChart;

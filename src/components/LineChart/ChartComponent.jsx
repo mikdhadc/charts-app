@@ -1,12 +1,20 @@
 import React, { useRef, useEffect } from "react";
 import * as d3 from "d3";
+import "./LineChart.scss";
+
+// eslint-disable-next-line no-restricted-globals
+const bodyWidth = screen.width;
+// eslint-disable-next-line no-restricted-globals
+const bodyHeight = screen.height;
 
 const ChartComponent = (props) => {
   const svgRef = useRef();
   const { manage, month, data } = props;
 
-  const width = 630;
-  const height = 250;
+  const width = bodyWidth - 1170;
+  const height = bodyHeight - 870;
+
+  console.log(bodyHeight, bodyWidth);
 
   useEffect(() => {
     d3.select(svgRef.current).selectAll("*").remove();

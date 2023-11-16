@@ -93,7 +93,7 @@ const LineChart = (props) => {
           </FormControl>
         </div>
       </div>
-      <div className="line-chart-component">
+      <div className="line-chart-component" id="lineChart">
         <ChartComponent manage={manage} month={month} data={data} />
       </div>
     </Paper>

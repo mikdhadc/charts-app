@@ -17,7 +17,11 @@ const DataTable = (props) => {
         <table
           border={0}
           width="100%"
-          style={{ borderCollapse: "separate", borderSpacing: "1rem" }}
+          style={{
+            height: "auto",
+            borderCollapse: "separate",
+            borderSpacing: "1rem",
+          }}
         >
           <tr style={{ color: "#a1a1a1", fontWeight: bold }}>
             <td width="60%">Account</td>
